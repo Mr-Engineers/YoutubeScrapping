@@ -2,6 +2,7 @@ import os
 import requests
 import re
 from pymongo import MongoClient
+from datetime import datetime
 
 def lambda_handler(event, context):
     API_KEY = os.environ["SEARCHAPI_KEY"]
@@ -49,4 +50,5 @@ def lambda_handler(event, context):
             "video_id": video_id,
             "hashtags": hashtags,
             "keywords": keywords,
+            "date": datetime.now()
         })
